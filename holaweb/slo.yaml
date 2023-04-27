@@ -1,4 +1,4 @@
-spec_version: "1.0"
+spec_version: ""
 filter: {}
 comparison:
     compare_with: single_result
@@ -6,29 +6,17 @@ comparison:
     number_of_comparison_results: 1
     aggregate_function: avg
 objectives:
-    - sli: response_time_p95
-      displayName: ""
+    - sli: graph
+      displayName: Graph
       pass:
         - criteria:
-            - <600
+            - '>=0.000000'
+            - <16000000.000000
       warning:
         - criteria:
-            - <=800
+            - '>=0.000000'
+            - <20000000.000000
       weight: 1
-      key_sli: false
-    - sli: error_rate
-      displayName: ""
-      pass:
-        - criteria:
-            - <5
-      warning: []
-      weight: 1
-      key_sli: false
-    - sli: throughput
-      displayName: ""
-      pass: []
-      warning: []
-      weight: 0
       key_sli: false
 total_score:
     pass: 90%
